@@ -1,0 +1,183 @@
+<h1 class="title">{{ title }}</h1>
+
+<form class="form-group" [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <div
+    class="fixed-grid has-4-cols-fullhd has-4-cols-widescreen has-3-cols-desktop has-2-cols-tablet has-1-cols-mobile"
+  >
+    <div class="grid">
+      <div class="cell">
+        <div class="field mt-4">
+          <label class="label">Id</label>
+          <div class="control">
+            <input
+              class="input"
+              type="number"
+              name="id"
+              formControlName="id"
+              placeholder="id"
+            />
+          </div>
+          <!-- <p class="help is-success">This username is available</p> -->
+        </div>
+      </div>
+      <div class="cell">
+        <div class="field mt-4">
+          <label class="label">Titulo</label>
+          <div class="control">
+            <input
+              class="input"
+              name="title"
+              type="text"
+              formControlName="title"
+              placeholder="ingrese un titulo"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="cell">
+        <div class="field mt-4">
+          <label class="label">Descripcion</label>
+          <div class="control">
+            <input
+              class="input"
+              name="description"
+              type="text"
+              formControlName="description"
+              placeholder="ingrese una Descripcion"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="cell">
+        <div class="field mt-4">
+          <label class="label">Cantidad</label>
+          <div class="control">
+            <input
+              class="input"
+              name="count"
+              type="number"
+              formControlName="count"
+              placeholder="ingrese una cantidad"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="cell">
+        <div class="field mt-4">
+          <label class="label">Imagen</label>
+          <div class="control">
+            <input
+              class="input"
+              name="image"
+              type="text"
+              formControlName="image"
+              placeholder="ingrese una imagen"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="cell">
+        <div class="field mt-4">
+          <label class="label">Precio</label>
+          <div class="control">
+            <input
+              class="input"
+              name="price"
+              type="number"
+              formControlName="price"
+              placeholder="ingrese un titulo"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="cell">
+        <div class="field mt-4">
+          <label class="label">Rating</label>
+          <div class="control">
+            <input
+              class="input"
+              name="rate"
+              type="number"
+              formControlName="rate"
+              placeholder="ingrese un Rating"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="cell">
+        <div class="field mt-4">
+          <label class="label">Id de Categoria</label>
+          <div class="control">
+            <input
+              class="input"
+              name="categoryId"
+              type="number"
+              formControlName="categoryId"
+              placeholder="ingrese un id de Categoria"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="cell">
+        <div class="field mt-4">
+          <label class="label">Nombre de Categoria</label>
+          <div class="control">
+            <input
+              class="input"
+              name="categoryName"
+              type="text"
+              formControlName="categoryName"
+              placeholder="ingrese un Categoria"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field mt-4">
+    <div class="control">
+      <button class="button is-primary" type="submit">
+        <i class="bx bx-log-in"></i> Agregar
+      </button>
+    </div>
+  </div>
+</form>
+
+<hr />
+
+<table class="table mt-4">
+  <thead>
+    <tr>
+      <th>#id</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Image URL</th>
+      <th>Price</th>
+      <th>Count</th>
+      <th>Rate</th>
+      <th>Category Id</th>
+      <th>Category Name</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (product of products; track $index) {
+
+    <tr>
+      <td>{{ product.id }}</td>
+      <td>{{ product.title }}</td>
+      <td>{{ product.description.substring(0, 20) }}...</td>
+      <td>{{ product.image.substring(0, 15) }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.count }}</td>
+      <td>{{ product.rate }}</td>
+      <td>{{ product.categoryId }}</td>
+      <td>{{ product.categoryName }}</td>
+      <td>
+        <button>Edit</button>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>

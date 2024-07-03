@@ -1,0 +1,30 @@
+@if (user == null) {
+<div class="card">
+  <div class="card-content">
+    <div class="content">
+      <i class="bx bx-loader-alt bx-lg bx-spin"></i>
+    </div>
+  </div>
+</div>
+} @else{
+<div class="card">
+  <div class="card-image">
+    <figure class="is-64x64">
+      <img
+        class="is-rounded m-4"
+        src="{{ user.imageProfile }}"
+        alt="User profile image"
+      />
+    </figure>
+  </div>
+
+  <div class="card-content">
+    <div class="content">
+      <p class="title is-4">{{ user.name }}</p>
+      <p class="subtitle is-6">{{ user.email }}</p>
+      <p>Role: {{ user.roleName }}</p>
+      <p>Created: {{ user.createdAt }}</p>
+    </div>
+  </div>
+</div>
+}

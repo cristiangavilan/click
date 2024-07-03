@@ -1,0 +1,35 @@
+@if (products.length == 0) {
+<i class="bx bx-loader-alt bx-lg bx-spin"></i>
+} @else {
+<h1 class="title">{{ title }}</h1>
+<div
+  class="fixed-grid has-4-cols-fullhd has-4-cols-widescreen has-3-cols-desktop has-2-cols-tablet has-1-cols-mobile"
+>
+  <div class="grid">
+    @for (product of products; track $index) {
+    <div class="cell">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-4by4">
+            <img src="https://picsum.photos/300/300" alt="Placeholder image" />
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4">{{ product.title }}</p>
+              <p class="subtitle is-6">{{ product.description }}</p>
+            </div>
+          </div>
+
+          <div class="content">
+            <p><i class="bx bx-user-voice"></i> {{ product.rate }}</p>
+            <h3>${{ product.price }}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>
+}

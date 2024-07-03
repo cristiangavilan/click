@@ -1,0 +1,55 @@
+<div class="card">
+  <div class="card-header">
+    <h1 class="card-header-title">Login</h1>
+  </div>
+  <div class="card-content">
+    <form class="form-group" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="field mt-4">
+        <label class="label">Usuario</label>
+        <div class="control">
+          <input
+            class="input"
+            type="text"
+            name="username"
+            formControlName="username"
+            placeholder="Username"
+            (ngModelChange)="clearStatusLogin()"
+          />
+        </div>
+        <!-- <p class="help is-success">This username is available</p> -->
+      </div>
+      <div class="field mt-4">
+        <label class="label">contraseña</label>
+        <div class="control">
+          <input
+            class="input"
+            name="password"
+            type="password"
+            formControlName="password"
+            placeholder="Password"
+            (ngModelChange)="clearStatusLogin()"
+          />
+        </div>
+        @if (statusLogin !== '') {
+        <p class="help is-danger">{{ statusLogin }}</p>
+        }
+      </div>
+
+      <div class="field mt-4">
+        <div class="control">
+          <button class="button is-primary" type="submit">
+            <i class="bx bx-log-in"></i> Ingresar
+          </button>
+        </div>
+        <!-- <div class="control">
+          <button class="button is-link is-light" type="reset">Cancel</button>
+        </div> -->
+      </div>
+    </form>
+  </div>
+  <div class="card-footer">
+    <p class="m-4">
+      You don't have an account? <a routerLink="/signup">Sign up</a>
+    </p>
+  </div>
+</div>
